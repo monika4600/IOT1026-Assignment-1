@@ -9,7 +9,13 @@
         /// <returns>A deep copy of the original array</returns>
         public static int[] ReplicateArray(int[] original)
         {
-            throw new NotImplementedException();
+            int size = original.Length;
+            int[] copyArray = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                copyArray[i] = original[i];
+            }
+            return copyArray;            
         }
 
         /// <summary>
@@ -19,7 +25,16 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumber(string text)
         {
-            throw new NotImplementedException();
+            Console.Write(text);
+            string userInput = Console.ReadLine();
+            int number;
+            while (!int.TryParse(userInput, out number)) 
+            {
+             
+            Console.Write("Input Invalid. Please   enter a valid number:");
+            userInput = Console.ReadLine();
+            }
+            return number;            
         }
 
         /// <summary>
@@ -32,7 +47,12 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumberInRange(string text, int min, int max)
         {
-            throw new NotImplementedException();
+             int userInput = AskForNumber(text);
+            while (userInput <min || userInput> max)
+            {
+              userInput = AskForNumber("Your previous input is invalid, try again.");
+            }
+            return userInput;            
         }
     }
 
@@ -40,7 +60,7 @@
     {
         static void Main()
         {
-            /*
+           
             const int Min = 0;
             const int Max = 10;
             const int PrintOffset = 4;
@@ -58,7 +78,7 @@
             // Verify original and replicated array are the same
             for (int index = 0; index < size; ++index)
                 Console.WriteLine($"Original {original[index],-PrintOffset}  {copy[index],4} Copy");
-            */
+           
         }
     }
 }
