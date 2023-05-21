@@ -23,5 +23,19 @@ namespace AssignmentTest
             Assert.AreNotSame(original, result);
             */
         }
+         public void ReplicateArray_ArrayWithElements()
+        {
+            int[] original = new int[] { 1, 2, 3 };
+            int[] result = ArrayReplicator.ReplicateArray(original);
+            CollectionAssert.AreEqual(original, result);
+            Assert.AreNotSame(original, result);
+        }
+        public void ReplicateArray_ArrayWithNegativeElements()
+        {
+            int[] original = new int[] { -1, 2, -3, 0, -999, 100120 };
+            int[] result = ArrayReplicator.ReplicateArray(original);
+            CollectionAssert.AreEqual(original, result);
+            Assert.AreNotSame(original, result);
+        }
     }
 }
